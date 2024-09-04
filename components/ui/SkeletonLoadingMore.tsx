@@ -6,7 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 export default function SkeletonLoadingMore() {
   return (
     <div className="flex flex-col justify-center px-10">
-      {Array.from({length: 2}).map((_, index) => (
+      {Array.from({length: 2}).map((____, index) => (
         <div key={index} className="mt-3">
           <h2 className="text-md font-bold">
             <Skeleton width={100} />

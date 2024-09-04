@@ -10,7 +10,7 @@ export default function LogInBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {data: session, status} = useSession();
+  const {status} = useSession();
 
   const router = useRouter();
 
@@ -20,8 +20,8 @@ export default function LogInBox() {
     }
   }, [status, router]);
 
-  const handleSubmit = async (e: {preventDefault: () => void}) => {
-    e.preventDefault();
+  const handleSubmit = async (element: {preventDefault: () => void}) => {
+    element.preventDefault();
     try {
       const result = await signIn("credentials", {
         redirect: false,
@@ -30,13 +30,12 @@ export default function LogInBox() {
       });
 
       if (result && result.error) {
-        console.error(result.error);
         alert(result.error);
       } else {
         router.push("/");
       }
     } catch (error) {
-      console.log("error", error);
+      throw new Error("Failed to sign in");
     }
   };
 
@@ -50,14 +49,14 @@ export default function LogInBox() {
           onSubmit={handleSubmit}
           className="bg-white p-6 rounded-md shadow-md w-80 lg:w-96 lg:h-96 "
         >
-          <h3 className="text-xl font-bold text-darkBlueOne">Let's manage your tasks</h3>
+          <h3 className="text-xl font-bold text-darkBlueOne">Let&apos;s manage your tasks</h3>
           <div className="mb-4 mt-3 font-medium">
             <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(element) => setEmail(element.target.value)}
               required
               placeholder={DEFAULT_EMAIL}
               className="w-full border border-gray-300 px-3 py-2 rounded"
@@ -69,7 +68,7 @@ export default function LogInBox() {
               id="password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(element) => setPassword(element.target.value)}
               required
               placeholder={DEFAULT_PASSWORD}
               className="w-full border border-gray-300 px-3 py-2 rounded"

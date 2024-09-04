@@ -18,7 +18,7 @@ export default function TodoLists({status, icon}: {status: string; icon: JSX.Ele
   const [offset, setOffset] = useState<number>(0);
   const [limitOffset, setLimitOffset] = useState<number>(0);
 
-  // fetch api tasks data
+  // Fetch api tasks data
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -33,7 +33,7 @@ export default function TodoLists({status, icon}: {status: string; icon: JSX.Ele
     fetchData();
   }, [offset, status]);
 
-  // handle scrolling screen
+  // Handle scrolling screen
   const handleScroll = (): void => {
     if (
       window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -44,10 +44,11 @@ export default function TodoLists({status, icon}: {status: string; icon: JSX.Ele
       }
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [offset, limitOffset]);
 
   if (loading && offset === 0) {
     return <SkeletonLoading />;
