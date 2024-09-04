@@ -57,7 +57,7 @@ export default function TodoLists({status, icon}: {status: string; icon: JSX.Ele
   return (
     <>
       <div className="flex flex-col justify-center px-10 pb-5">
-        {groupedTasks.map((groupDate: any, index: number) => (
+        {groupedTasks.map((groupDate: GroupedDateTasksType, index: number) => (
           <div key={index} className="mt-3">
             <h2 className="text-md font-bold text-darkBlueOne">{groupDate?.date}</h2>
             <ul className="flex flex-col space-y-5 py-3">

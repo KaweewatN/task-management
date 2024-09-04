@@ -1,4 +1,4 @@
-import {getServerSession, NextAuthOptions, User} from "next-auth";
+import {getServerSession, NextAuthOptions, User, Session} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {TEST_USER} from "@services/constants/constant";
 import {AuthResponse} from "../../../../types/auth-response";
@@ -33,13 +33,13 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    jwt: async ({token, user}: {token: JWT; user: any}) => {
+    jwt: async ({token, user}: {token: JWT; user: User}) => {
       if (user) {
         token.id = user.id;
       }
       return token;
     },
-    session: async ({session, token}: {session: any; token: JWT}) => {
+    session: async ({session, token}: {session: Session; token: JWT}) => {
       if (session.user) {
         session.user.id = token.id;
       }
