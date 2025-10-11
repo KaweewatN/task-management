@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task Management
 
-## Getting Started
+A lightweight task management web app built with Next.js 14, TypeScript and Tailwind CSS. It demonstrates authentication with NextAuth, client-side UI components, and simple task list features.
 
-First, run the development server:
+## Features
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS for styling
+- NextAuth for authentication
+- Reusable UI components (tabs, avatar, skeleton loaders)
+
+## Quick start
+
+Prerequisites:
+
+- Node.js (>= 18) and npm or yarn
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Run in development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Other helpful scripts:
 
-## Learn More
+- `npm run lint` — run ESLint (uses Next's config)
+- `npm run prettier:check` — check formatting with Prettier
+- `npm run prettier:format` — format project with Prettier
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Top-level folders and purpose (important files):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `app/` — Next.js App Router pages and layouts
+  - `layout.tsx` — global app layout
+  - `login/`, `api/`, and `(withNav)/` — feature pages and routes
+- `components/` — React components and UI building blocks
+  - `index/` — main page components (TodoLists, WelcomeUser, TabTodoList)
+  - `login/` — login UI
+  - `nav/` — navigation UI
+  - `shadui/` and `ui/` — small UI primitives (avatar, tabs, skeletons)
+- `services/` — API client and related utilities (`api-client.ts`, models)
+- `libs/` — shared utilities
+- `types/` — TypeScript types
+- `public/` — static assets (images)
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Demo screenshot showing tasks and layout](pictures/read-me-5.png)
+![Demo screenshot showing tasks and layout](pictures/read-me-1.png)
+![Demo screenshot showing tasks and layout](pictures/read-me-2.png)
+![Demo screenshot showing tasks and layout](pictures/read-me-3.png)
+![Demo screenshot showing tasks and layout](pictures/read-me-4.png)
