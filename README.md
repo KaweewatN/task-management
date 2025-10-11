@@ -2,6 +2,9 @@
 
 A lightweight task management web app built with Next.js 14, TypeScript and Tailwind CSS. It demonstrates authentication with NextAuth, client-side UI components, and simple task list features.
 
+An API-driven task management system that fetches data for personal reminders and categorizes tasks into TODO, DOING, and DONE.
+Website: [https://task-management-web.vercel.app/](url)
+
 ## Features
 
 - Next.js 14 (App Router)
